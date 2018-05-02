@@ -22,12 +22,12 @@ app.post('*', function (req, res, next) {
 });
 
 app.post('/zxcvbn', function (req, res) {
-    res.send(zxcvbn(req.body.password));
+    res.send(zxcvbn(req.body.password, req.body.userInput));
 });
 
 app.post('/zxcvbn/score', function (req, res) {
     res.send({
-        score: zxcvbn(req.body.password).score
+        score: zxcvbn(req.body.password, req.body.userInput).score
     });
 });
 
